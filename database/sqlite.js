@@ -12,12 +12,15 @@ const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CR
 });
 
 const initializeDatabase = () => {
-    db.run(`DROP TABLE IF EXISTS users`, (err) => {});
+    db.run(`DROP TABLE IF EXISTS users`, (err) => {
+    });
 
-    db.run(`CREATE TABLE IF NOT EXISTS users (
-                                                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                                 name TEXT NOT NULL
-            )`, (err) => {});
+    db.run(`CREATE TABLE IF NOT EXISTS users
+            (
+                id INTEGER PRIMARY KEY,
+                name TEXT NOT NULL
+            )`, (err) => {
+    });
 };
 
 module.exports = db;
