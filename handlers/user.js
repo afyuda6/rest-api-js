@@ -20,7 +20,7 @@ const userHandler = (req, res) => {
 const handleReadUsers = (req, res) => {
     db.all('SELECT * FROM users', [], (err, users) => {
         res.writeHead(200, {'Content-Type': 'application/json'});
-        res.end(JSON.stringify({status: 'OK', code: 200, users: users}));
+        res.end(JSON.stringify({status: 'OK', code: 200, data: users}));
     });
 };
 
